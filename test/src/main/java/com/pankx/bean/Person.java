@@ -2,22 +2,23 @@ package com.pankx.bean;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.Mapping;
+import sun.tools.java.ClassPath;
 
 import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 @Component
-@ConfigurationProperties(prefix = "person")
-@Validated
+@ConfigurationProperties(prefix = "person")//在全局配置文件中获取值
+@PropertySource(value = {"classpath:person.properties"})//获取指定的配置文件中的值
+//@Validated
 public class Person {
-//    @Value("${person.name}")
-    @Email
+
     private String name;
-//    @Value("${person.age}")
     private Integer age;
     private Date birthday;
     private Map<String,Object> map;
