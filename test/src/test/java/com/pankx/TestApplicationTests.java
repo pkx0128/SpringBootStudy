@@ -25,6 +25,7 @@ class TestApplicationTests {
         System.out.println(ioc.containsBean("cat"));
     }
 
+
     @Test
     void contextLoads() {
         System.out.println(person);
